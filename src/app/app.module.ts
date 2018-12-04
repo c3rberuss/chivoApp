@@ -19,6 +19,7 @@ import { PalabrasPage } from "../pages/palabras/palabras";
 import { CategoriasListPage } from '../pages/categorias-list/categorias-list';
 import { PalabraDetailPage } from '../pages/palabra-detail/palabra-detail';
 import { CategoriasPage } from '../pages/categorias/categorias';
+import { PalabrasListPage } from '../pages/palabras-list/palabras-list';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
@@ -55,7 +56,8 @@ export const firebaseConfig = {
     PalabrasPage,
     PalabraDetailPage,
     CategoriasListPage,
-    CategoriasPage
+    CategoriasPage,
+    PalabrasListPage
   ],
   imports: [
     BrowserModule,
@@ -77,7 +79,8 @@ export const firebaseConfig = {
     PalabrasPage,
     PalabraDetailPage,
     CategoriasListPage,
-    CategoriasPage
+    CategoriasPage,
+    PalabrasListPage
   ],
   providers: [
     StatusBar,

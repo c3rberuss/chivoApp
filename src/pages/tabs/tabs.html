@@ -1,8 +1,6 @@
 <ion-tabs color="primary">
 
 
-  <ion-tab tabIcon="home" tabTitle="Inicio" [root]="tab1"></ion-tab>
-  <ion-tab tabIcon="map" tabTitle="Departamentos" [root]="tab2"></ion-tab>
-  <ion-tab tabIcon="list" tabTitle="Categorías" [root]="tab3"></ion-tab>
+  <ion-tab [tabIcon]="tab.icon" [tabTitle]="tab.tab" [root]="tab.component" *ngFor="let tab of tabs"></ion-tab>
 
 </ion-tabs>

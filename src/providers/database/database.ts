@@ -3,10 +3,15 @@ import { AngularFireDatabase } from "angularfire2/database/database";
 import { AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestore } from 'angularfire2/firestore';
 import { MessageProvider } from "../../providers/message/message";
 
-export interface User{
+interface User{
   id?: string,
   nombre?: string,
   uid?: string
+}
+
+interface PalabraInterface {
+    id?: string,
+    palabra?: string
 }
 
 @Injectable()
@@ -31,9 +36,10 @@ export class DatabaseProvider {
   }
 
   usuarios: User[];
-
+  public palabras: PalabraInterface[];
+  todo:any;
   constructor(public afDB: AngularFireDatabase,
-              private fireStore: AngularFirestore,
+              public fireStore: AngularFirestore,
               private message: MessageProvider) {
 
 
@@ -59,7 +65,7 @@ export class DatabaseProvider {
 
   edit_usuarios(){
 
-    
+
 
   }
 
@@ -99,6 +105,16 @@ export class DatabaseProvider {
 
   get_palabras_depa(depa){
     return this.fireStore.collection("diccionario", ref => ref.where("departamentos", "array-contains", depa));
+  }
+
+  get_palabras_scroll(last){
+
+    return this.fireStore.collection("diccionario", ref => ref.orderBy('palabra').limit(15).startAt(last));
+  }
+
+  get_list_palabras(limit){
+      return this.todo = this.fireStore.collection("diccionario", ref => ref.orderBy('palabra').limit(limit));
+
   }
 
 }

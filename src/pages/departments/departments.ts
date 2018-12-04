@@ -29,12 +29,9 @@ export class DepartmentsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DepartmentsPage');
-  }
 
   openDepartment(depart){
-    
+
     this.navCtrl.push(DepartmentDetailPage, { departamento: depart });
 
   }
